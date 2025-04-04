@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Spring Boot API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #333;
+        }
+        .api-info {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        code {
+            background-color: #e0e0e0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Spring Boot Application</h1>
+    
+    <div class="container">
+        <h2>Messages</h2>
+        <div th:if="${messages.empty}">
+            <p>No messages available.</p>
+        </div>
+        <div th:each="message : ${messages}" class="message">
+            <p><strong>ID:</strong> <span th:text="${message.id}">1</span></p>
+            <p><strong>Content:</strong> <span th:text="${message.content}">Message content</span></p>
+        </div>
+    </div>
+    
+    <div class="api-info">
+        <h2>API Endpoints</h2>
+        <p>This application provides the following RESTful API endpoint:</p>
+        <ul>
+            <li><code>GET /api/messages</code> - Get all messages</li>
+        </ul>
+    </div>
+</body>
+</html> 
